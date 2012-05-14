@@ -1,10 +1,16 @@
-#include <iostream>
-
-using namespace std;
+#include"MainHandler.h"
+#include"OSUtils.h"
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    try
+    {
+        MainHandler app;
+        app.Run();
+        CoreToolkit::Environment::WaitForTermination();
+    }
+    catch(std::exception& e)
+    {
+        LOG(CoreToolkit::LogError)<<e.what();
+    }
 }
-
